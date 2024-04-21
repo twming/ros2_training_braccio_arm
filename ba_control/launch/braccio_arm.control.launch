@@ -1,0 +1,16 @@
+<launch>
+    <let name="urdf_path" value="$(find-pkg-share ba_description)/urdf/braccio.urdf" />
+    <let name="rviz_path" value="$(find-pkg-share ba_description)/rviz/braccio_arm_rviz.rviz" />
+
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description" value="$(command 'xacro $(var urdf_path)')" />
+    </node>
+
+    <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" />
+
+    <node pkg="ba_control" exec="parse_and_publish" />
+
+    <include file="$(find-pkg-share serial_driver)/launch/serial_driver_bridge_node.launch.py" />
+
+    <node pkg="rviz2" exec="rviz2" output="screen" args=" -d $(var rviz_path)" />
+</launch>

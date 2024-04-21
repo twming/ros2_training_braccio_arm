@@ -1,0 +1,8 @@
+int32 base
+int32 shoulder
+int32 elbow
+int32 wrist_ver
+int32 wrist_rot
+int32 gripper
+---
+string state
