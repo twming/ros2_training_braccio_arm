@@ -13,7 +13,7 @@ class ArmMoveServer(Node):
         self.srv = self.create_service(JointAngle, 'ArmMoveService', self.arm_move_callback)
         self.get_logger().info('Arm Move Service : Started')
         self.get_logger().info('-----------------------------')
-        self.arm_serial=serial.Serial("/dev/ttyACM0",115200,timeout=3)
+        #self.arm_serial=serial.Serial("/dev/ttyACM0",115200,timeout=3)
 
     def arm_move_callback(self, request, response):
         base=request.base
@@ -31,7 +31,7 @@ class ArmMoveServer(Node):
                                                                               request.gripper))
         
         pos=[chr(base),chr(shoulder),chr(elbow),chr(wrist_ver),chr(wrist_rot),chr(gripper)]
-        self.arm_serial.write(bytes(''.join(pos),'utf-8'))
+        #self.arm_serial.write(bytes(''.join(pos),'utf-8'))
         response.state = "succed"
         self.get_logger().info('Arm Move request : Complete')
         self.get_logger().info('-----------------------------')
