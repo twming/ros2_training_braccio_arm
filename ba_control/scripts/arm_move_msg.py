@@ -17,7 +17,7 @@ class ArmMove(Node):
             '/joint_states',
             self.callback,
             1)
-        self.arm_serial=serial.Serial("/dev/ttyACM0",115200,timeout=3)
+        #self.arm_serial=serial.Serial("/dev/ttyACM0",115200,timeout=3)
         self.base=chr(90)
         self.shoulder=chr(90)
         self.elbow=chr(90)
@@ -34,7 +34,7 @@ class ArmMove(Node):
         self.wrist_rot=chr(int(data.position[4]/3.14*180))
         self.gripper=chr(int(data.position[5]/3.14*180))
         pos=[self.base,self.shoulder,self.elbow,self.wrist_ver,self.wrist_rot,self.gripper]
-        self.arm_serial.write(bytes(''.join(pos),'utf-8'))
+        #self.arm_serial.write(bytes(''.join(pos),'utf-8'))
         self.get_logger().info('Joint States : "%i, %i, %i, %i, %i, %i"' % (int(data.position[0]/3.14*180),
                                                                             int(data.position[1]/3.14*180),
                                                                             int(data.position[2]/3.14*180),
