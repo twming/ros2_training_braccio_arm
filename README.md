@@ -18,7 +18,7 @@ Pull from repository
 cd ~/dev_ws/src
 git clone http://github.com/twming/ros2_training_braccio_arm
 ```
-Change the directory to your workspace
+Edit 3 python .py files in ba_control/scripts, by removing the comment self.arm_serial. Save those files. Change the directory to your workspace
 ```
 cd ~/dev_ws
 ```
