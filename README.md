@@ -7,7 +7,7 @@ sudo apt install -y ros-iron-joint-state-publisher-gui ros-iron-robot-state-publ
 ```
 Install following python3 packages
 ```
-pip install inputimeout
+pip install inputimeout pyserial
 ```
 Setup your VirtualBox USB port, (Right Click) Setting -> USB -> Arduino (Add). Modify the ttyACM0 to 777
 ```
