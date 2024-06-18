@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-import rclpy.wait_for_message
 from sensor_msgs.msg import JointState
 from ba_control.srv import JointAngle
 from tkinter import *
@@ -18,10 +17,6 @@ class ArmMoveClient(Node):
         self.send_message = False
         self.timer = self.create_timer(1.0, self.timer_callback)
         self.cli=self.create_client(JointAngle, 'ArmMoveService')
-
-        while self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
-            time.sleep(1)
         self.req = JointAngle.Request()
         self.res = JointAngle.Response()
 
