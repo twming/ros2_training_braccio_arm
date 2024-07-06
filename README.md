@@ -3,7 +3,7 @@
 ### Braccio Arm Setup 
 Check the required packages already install, if not install them
 ```
-sudo apt install -y ros-iron-joint-state-publisher-gui ros-iron-robot-state-publisher ros-iron-xacro python3-pip
+sudo apt install -y ros-humble-joint-state-publisher-gui ros-humble-robot-state-publisher ros-humble-xacro python3-pip
 ```
 Install following python3 packages
 ```
