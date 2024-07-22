@@ -31,7 +31,6 @@
     <visual>
       <geometry>
         <mesh filename="package://ba_description/meshes/base.stl"/>
-
       </geometry>
       <material name="orange"/> 
     </visual>
@@ -46,7 +45,6 @@
     <visual>
       <geometry>
         <mesh filename="package://ba_description/meshes/shoulder.stl"/>
-        
       </geometry>
       <material name="orange"/>
       <origin rpy="0 0 0" xyz="0 0 -0.0505"/> 
@@ -63,7 +61,6 @@
     <visual>
       <geometry>
         <mesh filename="package://ba_description/meshes/elbow.stl"/>
-        
       </geometry>
       <material name="orange"/>
       <origin rpy="0 0 0" xyz="0 0 -0.1705"/> 
@@ -80,7 +77,6 @@
     <visual>
       <geometry>
         <mesh filename="package://ba_description/meshes/wrist_pitch.stl"/>
-        
       </geometry>
       <material name="orange"/>
       <origin rpy="0 0 0" xyz="0 0 -0.2905"/> 
@@ -96,8 +92,7 @@
   <link name="link5">
     <visual>
       <geometry>
-        <mesh filename="package://ba_description/meshes/wrist_roll.stl"/>
-        
+        <mesh filename="package://ba_description/meshes/wrist_roll.stl"/> 
       </geometry>
       <material name="white"/>
       <origin rpy="0 0 0" xyz="0 0 -0.3505"/> 
@@ -114,7 +109,6 @@
     <visual>
       <geometry>
         <mesh filename="package://ba_description/meshes/gripper_base.stl"/>
-        
       </geometry>
       <material name="white"/>
       <origin rpy="0 0 0" xyz="0 0 -0.357"/> 
@@ -131,16 +125,15 @@
     <visual>
       <geometry>
         <mesh filename="package://ba_description/meshes/gripper_fix.stl"/>
-        
       </geometry>
       <material name="white"/>
-      <origin rpy="0 0 0" xyz="0 0 -0.36399"/> 
+      <origin rpy="0 0 -1.57" xyz="0 0 -0.36399"/> 
     </visual>
     <collision>
       <geometry>
         <mesh filename="package://ba_description/meshes/gripper_fix.stl"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 -0.36399"/> 
+      <origin rpy="0 0 -1.57" xyz="0 0 -0.36399"/> 
     </collision>
   </link>
 
@@ -148,16 +141,15 @@
     <visual>
       <geometry>
         <mesh filename="package://ba_description/meshes/gripper_movable.stl"/>
-        
       </geometry>
       <material name="white"/>
-      <origin rpy="0 0 0" xyz="-0.01559 0 -0.36399"/> 
+      <origin rpy="0 0 -1.57" xyz="-0.01559 0.01 -0.38399"/> 
     </visual>
     <collision>
       <geometry>
         <mesh filename="package://ba_description/meshes/gripper_movable.stl"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="-0.01559 0 -0.36399"/> 
+      <origin rpy="0 0 -1.57" xyz="-0.01559 0.01 -0.38399"/> 
     </collision>
   </link>
 
@@ -214,7 +206,7 @@
   </joint>
 
   <joint name="gripper_movable" type="revolute">
-    <axis xyz="0 -1 0"/>
+    <axis xyz="-1 0 0"/>
     <limit effort="1000.0" lower="0.17453292519943295" upper="1.2740903539558606" velocity="4.0"/>
     <origin rpy="0 0 0" xyz="0.01559 0 0.007"/>
     <parent link="gripper_base"/>
