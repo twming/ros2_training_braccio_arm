@@ -18,23 +18,24 @@ class ArmMove(Node):
             self.callback,
             1)
         #self.arm_serial=serial.Serial("/dev/ttyACM0",115200,timeout=3)
-        self.base=chr(90)
-        self.shoulder=chr(90)
-        self.elbow=chr(90)
-        self.wrist_ver=chr(90)
-        self.wrist_rot=chr(90)
-        self.gripper=chr(90)
+        self.base=20
+        self.shoulder=90
+        self.elbow=90
+        self.wrist_ver=90
+        self.wrist_rot=90
+        self.gripper=73
         self.subscription  # prevent unused variable warning
 
     def callback(self, data):
-        self.base=chr(int(data.position[0]/3.14*180))
-        self.shoulder=chr(int(data.position[1]/3.14*180))
-        self.elbow=chr(int(data.position[2]/3.14*180))
-        self.wrist_ver=chr(int(data.position[3]/3.14*180))
-        self.wrist_rot=chr(int(data.position[4]/3.14*180))
-        self.gripper=chr(int(data.position[5]/3.14*180))
-        pos=[self.base,self.shoulder,self.elbow,self.wrist_ver,self.wrist_rot,self.gripper]
-        #self.arm_serial.write(bytes(''.join(pos),'utf-8'))
+        self.base=int(data.position[0]/3.14*180)
+        self.shoulder=int(data.position[1]/3.14*180)
+        self.elbow=int(data.position[2]/3.14*180)
+        self.wrist_ver=int(data.position[3]/3.14*180)
+        self.wrist_rot=int(data.position[4]/3.14*180)
+        self.gripper=int(data.position[5]/3.14*180)
+
+        pos=int(self.base).to_bytes(2,byteorder='big')+int(self.shoulder).to_bytes(2,byteorder='big')+int(self.elbow).to_bytes(2,byteorder='big')+int(self.wrist_ver).to_bytes(2,byteorder='big')+int(self.wrist_rot).to_bytes(2,byteorder='big')+int(self.gripper).to_bytes(2,byteorder='big')
+        #self.arm_serial.write(pos)
         self.get_logger().info('Joint States : "%i, %i, %i, %i, %i, %i"' % (int(data.position[0]/3.14*180),
                                                                             int(data.position[1]/3.14*180),
                                                                             int(data.position[2]/3.14*180),

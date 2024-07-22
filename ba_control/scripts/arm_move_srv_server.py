@@ -30,9 +30,9 @@ class ArmMoveServer(Node):
                                                                               request.wrist_rot,
                                                                               request.gripper))
         
-        pos=[chr(base),chr(shoulder),chr(elbow),chr(wrist_ver),chr(wrist_rot),chr(gripper)]
-        #self.arm_serial.write(bytes(''.join(pos),'utf-8'))
-        response.state = "succed"
+        pos=int(base).to_bytes(2,byteorder='big')+int(shoulder).to_bytes(2,byteorder='big')+int(elbow).to_bytes(2,byteorder='big')+int(wrist_ver).to_bytes(2,byteorder='big')+int(wrist_rot).to_bytes(2,byteorder='big')+int(gripper).to_bytes(2,byteorder='big')
+        #self.arm_serial.write(pos)
+        response.state = "succeed"
         self.get_logger().info('Arm Move request : Complete')
         self.get_logger().info('-----------------------------')
         return response
